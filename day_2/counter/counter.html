@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+
+
+</style>
+</head>
+<body>
+    <h1></h1>
+    <button id="dec">decrement</button>
+    <button id="inc">increment</button>
+</body>
+</html>
+<script>
+
+   // var count=0 //this resets value to zero
+//------------------
+    //on refresh, counter resets to 0
+    //what we can do is save counter value to localstorage and
+    //get it form there 
+    //we can also get counter value to start from value stored in localstorage by get at var count=0
+  //--------------------  
+    //var count=localStorage.getItem("counter") 
+    //this initializes the counter at the localstorage value
+   //if counter value in localstorage is not present yet, it will start from null. which is not recommended
+   //so use if condition
+
+  //---------------------------------  
+//     var count; 
+//     if(count=localStorage.getItem("counter")==null) //null outside bracket
+//     {
+//         count=0
+//     }
+// else
+// {
+//     count=localStorage.getItem("counter")
+// }
+
+//instead of if else we can use or || operator
+
+var count=localStorage.getItem("counter") || 0
+    document.querySelector("h1").innerText=count;
+
+    document.querySelector("#dec").addEventListener("click",myDec)
+
+function myDec(){
+count--
+document.querySelector("h1").innerText=count;
+localStorage.setItem("counter",count)   //this sets value in localstorage
+
+}
+
+document.querySelector("#inc").addEventListener("click",myInc)
+
+function myInc(){
+count++
+document.querySelector("h1").innerText=count;
+localStorage.setItem("counter",count) //this sets value in localstorage
+}
+
+
+//null,"" (empty string), undefined, NaN == all   have false value
+
+// console.log(localStorage.getItem("fahgfgokjafhklfg") || true)  //trying to get value of key that is not present gives null so null||true == false||true gives true
+///console.log(true || localStorage.getItem("fahgfgokjafhklfg")) //like true||null
+
+</script>
