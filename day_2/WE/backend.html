@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>backend</title>
+    <link rel="stylesheet" href="../accessingKeys/common.css">
+</head>
+<body>
+    <div id="navbar">
+        <div><a href="backend.html">Backend</a></div>
+        <div><a href="frontend.html">Frontend</a></div>
+    </div>
+    
+    <form id="cont">
+        <input id="imgURL" type="text" placeholder="enter image url">
+        <input id="name" type="text" placeholder="enter investor name">
+        <input id="role" type="text" placeholder="enter role">
+        <input id="logo" type="text" placeholder="enter logo url">
+        <input type="submit">
+    </form>
+</body>
+</html>
+<script>
+
+    document
+    .querySelector("#cont")
+    .addEventListener("submit",invesFun)
+
+    var invesArr=JSON.parse(localStorage.getItem("invesData")) || []
+//arr of object
+    function invesFun(){
+        event.preventDefault()
+
+        //idOfform.idOfinput.value
+        var invesObj={
+        invesImg: cont.imgURL.value,
+        invesName: cont.name.value,
+        invesRole: cont.role.value,
+        invesLogo: cont.logo.value,
+    }
+     
+    invesArr.push(invesObj)
+    console.log(invesArr)
+    localStorage.setItem("invesData",JSON.stringify(invesArr))
+   
+
+}
+
+
+   
+</script>

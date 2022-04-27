@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frontend</title>
+    <link rel="stylesheet" href="../accessingKeys/common.css">
+    <style>
+        
+        h1{
+            font-family: sans-serif;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+      #cont{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(4,auto);
+            gap:20px
+        }
+        p{
+            text-align: center;
+            margin-top: -10px;
+        }
+        h3{
+            text-align: center;
+            
+        }
+        p+img{
+            
+            justify-content: center;
+            height:40px;
+            margin-left: 80px;
+            margin-top: -20px;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1><a href="frontend.html"></a></h1>
+    <div id="cont"></div>
+    
+</body>
+</html>
+<script>
+
+    var invesArr=JSON.parse(localStorage.getItem("invesData"))
+console.log(invesArr)
+
+
+invesArr.forEach(function(ele){
+        var box=document.createElement("div")
+        var avatar=document.createElement("img")
+        avatar.setAttribute("src",ele.invesImg)
+        var name=document.createElement("h3")
+        name.innerText=ele.invesName
+        var position=document.createElement("p")
+        position.innerText=ele.invesRole
+        var logo=document.createElement("img")
+        logo.setAttribute("src",ele.invesLogo)
+        box.append(avatar,name,position,logo)
+        document.querySelector("#cont").append(box)
+    })
+</script>
