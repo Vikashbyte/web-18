@@ -1,0 +1,27 @@
+#navbar{
+    /* display: flex; */
+    justify-content: space-around;
+    background-color: white;
+    color: white;
+    padding: 5px;
+    font-size: 28px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: auto;
+    text-align: center;
+    padding-bottom: 20px;
+}
+a{
+    text-decoration: none;
+    color: wheat;
+}
+#navbar>div{
+    background-color: slateblue;
+    gap: 20px;
+    border-radius: 5px;
+}
+#cont{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
